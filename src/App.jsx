@@ -33,7 +33,7 @@ useEffect(function() {
     setCount(count => count + 1);
   }, 1000)
   console.log("mounted");
-}, []);
+}, []); //dependancy array
 
   return (
     <div>
