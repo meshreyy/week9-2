@@ -1,15 +1,25 @@
-import { useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+//every 5 sec it goes
+
 function App() {
-  const [count, setCount] = useState(0)
+  let [counterVisible, setCounterVisible] = useState(true);
+
+  useEffect (function(){
+    setInterval(function(){
+      setCounterVisible(count=> !count)
+    },5000);
+  },[])
 
   return (
     <>
       <div>
-        <Counter></Counter>
+        hi
+        {counterVisible ? <Counter></Counter> : null}
+        hello
       </div>
     </>
   )
@@ -17,23 +27,13 @@ function App() {
 
 function Counter() {
   const [count, setCount] = useState(0);
-  {/*once on first render it gets initialized to 0 
-  this will not re-initialize count to 0
-*/}
 
-
-{/*
-useEffect will render in loop but not the logic inside it
-Guarding our setInterval from re-renders
-*/}
-
-
-useEffect(function() {
-   setInterval(function () {
-    setCount(count => count + 1);
-  }, 1000)
-  console.log("mounted");
-}, []); //dependancy array
+  useEffect(function () {
+    setInterval(function () {
+      setCount(count => count + 1);
+    }, 1000)
+    console.log("mounted");
+  }, []); //dependancy array
 
   return (
     <div>
