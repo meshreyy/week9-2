@@ -5,6 +5,7 @@ import './App.css'
 
 
 function App() {
+  //consitional rendering
   let [counterVisible, setCounterVisible] = useState(true);
 
    useEffect(function () {
@@ -17,7 +18,7 @@ function App() {
   return (
     <div>
       CLOCK
-      {counterVisible ? <Counter></Counter> : null}
+      {counterVisible && <Counter></Counter>}
       THE END
     </div>
   )
@@ -28,11 +29,20 @@ function Counter() {
   const [count, setCount] = useState(0);
 
 
+  //mounting
   useEffect(function () {
-    setInterval(function () {
+    console.log("mounting");
+    let clock = setInterval(function () {
+      console.log("ticking");
       setCount(count => count + 1);
-    }, 1000)
-    console.log("clock is increasing")
+    }, 1000);
+
+    //unmounting or cleanup
+    return function() {
+      console.log("unmounted");
+      clearInterval(clock);
+    }
+    
   }, [])
 
 
