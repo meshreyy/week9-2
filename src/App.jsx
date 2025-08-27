@@ -5,52 +5,49 @@ import './App.css'
 
 
 function App() {
-  //consitional rendering
-  let [counterVisible, setCounterVisible] = useState(true);
 
-   useEffect(function () {
-    setInterval(function () {
-      setCounterVisible(count => !count);
-    },5000);
-  },[])
+  const [count,setCount] = useState(0);
+  const [count2,setCount2] = useState(0);
 
-
+  function increase()
+  {
+    setCount(count=>count+1);
+  }
+  function decrease()
+  {
+    setCount2(count=>count-1);
+  }
+  
   return (
     <div>
-      CLOCK
-      {counterVisible && <Counter></Counter>}
-      THE END
+      <Counter count={count} count2={count2}></Counter>
+      <button onClick={increase}>Increase Count</button>
+      <button onClick={decrease}>Decrease Count</button>
     </div>
   )
+
 }
 
+function Counter(props)
+{
+    useEffect(function(){
+      console.log("mounts");
 
-function Counter() {
-  const [count, setCount] = useState(0);
+      return function(){
+        console.log("unmounts");
+      }
+    },[]);
 
+    useEffect(function(){
+      console.log("count changed!!")
+    },[props.count])
 
-  //mounting
-  useEffect(function () {
-    console.log("mounting");
-    let clock = setInterval(function () {
-      console.log("ticking");
-      setCount(count => count + 1);
-    }, 1000);
-
-    //unmounting or cleanup
-    return function() {
-      console.log("unmounted");
-      clearInterval(clock);
-    }
-    
-  }, [])
-
-
-  return (
-    <div>
-      <h1>{count}</h1>
-    </div>
-  )
+    return(
+      <div>
+        Counter1 {props.count} <br></br>
+        Counter2 {props.count2} <br></br>
+      </div>
+    )
 }
 
 
