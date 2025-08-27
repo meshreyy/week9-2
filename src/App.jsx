@@ -3,43 +3,49 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-//every 5 sec it goes
 
 function App() {
   let [counterVisible, setCounterVisible] = useState(true);
 
-  useEffect (function(){
-    setInterval(function(){
-      setCounterVisible(count=> !count)
+   useEffect(function () {
+    setInterval(function () {
+      setCounterVisible(count => !count);
     },5000);
   },[])
 
+
   return (
-    <>
-      <div>
-        hi
-        {counterVisible ? <Counter></Counter> : null}
-        hello
-      </div>
-    </>
+    <div>
+      CLOCK
+      {counterVisible ? <Counter></Counter> : null}
+      THE END
+    </div>
   )
 }
 
+
 function Counter() {
   const [count, setCount] = useState(0);
+
 
   useEffect(function () {
     setInterval(function () {
       setCount(count => count + 1);
     }, 1000)
-    console.log("mounted");
-  }, []); //dependancy array
+    console.log("clock is increasing")
+  }, [])
+
 
   return (
     <div>
-      <h1 id="text">{count}</h1>
+      <h1>{count}</h1>
     </div>
   )
 }
+
+
+
+
+
 
 export default App
