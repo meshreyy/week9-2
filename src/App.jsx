@@ -21,8 +21,8 @@ function App() {
   return (
     <div>
       <Counter count={count} count2={count2}></Counter>
-      <button onClick={increase}>Increase Count</button>
-      <button onClick={decrease}>Decrease Count</button>
+      <button className="btn" onClick={increase}>Increase Count</button> &nbsp;&nbsp;
+      <button className="btn" onClick={decrease}>Decrease Count</button>
     </div>
   )
 
@@ -40,12 +40,12 @@ function Counter(props)
 
     useEffect(function(){
       console.log("count changed!!")
-    },[props.count])
+    },[props.count, props.count2])
 
     return(
       <div>
-        Counter1 {props.count} <br></br>
-        Counter2 {props.count2} <br></br>
+        Counter 1 : {props.count} &nbsp;&nbsp;
+        Counter 2 : {props.count2} <br></br>
       </div>
     )
 }
