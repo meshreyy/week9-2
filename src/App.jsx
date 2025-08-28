@@ -19,10 +19,12 @@ function App() {
   }
   
   return (
-    <div>
+    <div className="container">
       <Counter count={count} count2={count2}></Counter>
+      <div className="button-group">
       <button className="btn" onClick={increase}>Increase Count</button> &nbsp;&nbsp;
-      <button className="btn" onClick={decrease}>Decrease Count</button>
+      <button className="btn" onClick={decrease}>Decrease Count</button> <br></br>
+      </div>
     </div>
   )
 
@@ -43,9 +45,10 @@ function Counter(props)
     },[props.count, props.count2])
 
     return(
-      <div>
+      <div className="counter">
         Counter 1 : {props.count} &nbsp;&nbsp;
-        Counter 2 : {props.count2} <br></br>
+        Counter 2 : {props.count2} 
+        
       </div>
     )
 }

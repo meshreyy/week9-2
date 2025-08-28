@@ -13,3 +13,27 @@
 .btn:hover{
     background-color: #4e56d9;
 }
+
+.counter{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.button-group{
+    display: flex;
+    gap:15px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* flex-direction: column;
+  align-items: center;   
+  justify-content: center; 
+  min-height: 100vh;  
+  text-align: center; */
