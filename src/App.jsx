@@ -1,57 +1,31 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+//import './App.css'
 
 
 function App() {
 
-  const [count,setCount] = useState(0);
-  const [count2,setCount2] = useState(0);
+  return <div style={{ display: "flex" }}>
+    <Card children={"hi there"}></Card>
+    <Card children={<div style={{ color: "green" }}>
+      What do you want to post?<br/><br/>
+      <input type={"text"}></input></div>}></Card>
 
-  function increase()
-  {
-    setCount(count=>count+1);
-  }
-  function decrease()
-  {
-    setCount2(count=>count-1);
-  }
-  
-  return (
-    <div className="container">
-      <Counter count={count} count2={count2}></Counter>
-      <div className="button-group">
-      <button className="btn" onClick={increase}>Increase Count</button> &nbsp;&nbsp;
-      <button className="btn" onClick={decrease}>Decrease Count</button> <br></br>
-      </div>
-    </div>
-  )
+  </div>
+}
+
+
+function Card({ children }) {
+  return <div style={{
+    backgroundColor: "black", color: "white",
+    padding: 10, margin:10, borderRadius:10
+  }}>
+    {children}
+  </div>
 
 }
 
-function Counter(props)
-{
-    useEffect(function(){
-      console.log("mounts");
-
-      return function(){
-        console.log("unmounts");
-      }
-    },[]);
-
-    useEffect(function(){
-      console.log("count changed!!")
-    },[props.count, props.count2])
-
-    return(
-      <div className="counter">
-        Counter 1 : {props.count} &nbsp;&nbsp;
-        Counter 2 : {props.count2} 
-        
-      </div>
-    )
-}
 
 
 
