@@ -6,25 +6,32 @@ import viteLogo from '/vite.svg'
 
 function App() {
 
-  return <div style={{ display: "flex" }}>
-    <Card children={"hi there"}></Card>
-    <Card children={<div style={{ color: "green" }}>
-      What do you want to post?<br/><br/>
-      <input type={"text"}></input></div>}></Card>
+  return (<div>
+    <Card>
+      <h1>Card Title</h1>
+      <p>This is some content inside card</p>
+    </Card>
+    <Card>
+      <h1>Another card</h1>
+      <p>This card has different content!</p>
+    </Card>
+  </div>)
 
-  </div>
 }
 
 
 function Card({ children }) {
-  return <div style={{
-    backgroundColor: "black", color: "white",
-    padding: 10, margin:10, borderRadius:10
+  return (<div style={{
+    border:'1px solid #ccc',
+    color:"black",
+    boxShadow:'2px 2px 5px rgba(0,0,0,0.1)',
+    padding:'10px',
+    margin:'10px'
   }}>
     {children}
-  </div>
+  </div>);
 
-}
+};
 
 
 
