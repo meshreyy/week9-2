@@ -5,35 +5,25 @@ import viteLogo from '/vite.svg'
 
 
 function App() {
+  //App stores a list of todos
 
-  const todos = [{
-    title: "Go to gym",
-    done: false
-  },
-  {
-    title: "eat lunch",
-    done: true
-  }];
-
-  const TodoComponent = todos.map(todo => <Todo title={todo.title} done={todo.done} />)
   return (
     <div>
-      {TodoComponent}
+      <Todo />
     </div>
   );
 
 };
 
-function Todo({title, done }) {
-  return <div>
-    {title} - {done ? "Done!" : "Not Done!"}
-  </div>
+//Todo displays the title and whether it's done or not
+
+function Todo() {
+  return (
+    <div style={{backgroundColor:'blue', color:'pink', fontSize:'50px'}} >
+      Hello, World!
+    </div>
+  )
 }
-
-
-
-
-
 
 
 export default App
